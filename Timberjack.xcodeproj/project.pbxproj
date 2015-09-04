@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A13DF14F1B999BA9008015C3 /* Timberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13DF14E1B999BA9008015C3 /* Timberjack.swift */; };
 		A1D265941B9999E3000D8735 /* Timberjack.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D265931B9999E3000D8735 /* Timberjack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1D2659A1B9999E3000D8735 /* Timberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D2658E1B9999E3000D8735 /* Timberjack.framework */; };
 		A1D265A11B9999E3000D8735 /* TimberjackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D265A01B9999E3000D8735 /* TimberjackTests.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A13DF14E1B999BA9008015C3 /* Timberjack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timberjack.swift; sourceTree = "<group>"; };
 		A1D2658E1B9999E3000D8735 /* Timberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Timberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D265921B9999E3000D8735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1D265931B9999E3000D8735 /* Timberjack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Timberjack.h; sourceTree = "<group>"; };
@@ -71,19 +73,19 @@
 		A1D265901B9999E3000D8735 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A1D265931B9999E3000D8735 /* Timberjack.h */,
 				A1D265911B9999E3000D8735 /* Supporting Files */,
+				A13DF14E1B999BA9008015C3 /* Timberjack.swift */,
 			);
-			name = Source;
-			path = Timberjack;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		A1D265911B9999E3000D8735 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A1D265931B9999E3000D8735 /* Timberjack.h */,
 				A1D265921B9999E3000D8735 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A1D2659D1B9999E3000D8735 /* Tests */ = {
@@ -92,8 +94,7 @@
 				A1D265A01B9999E3000D8735 /* TimberjackTests.swift */,
 				A1D2659E1B9999E3000D8735 /* Supporting Files */,
 			);
-			name = Tests;
-			path = TimberjackTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		A1D2659E1B9999E3000D8735 /* Supporting Files */ = {
@@ -101,7 +102,7 @@
 			children = (
 				A1D2659F1B9999E3000D8735 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +161,8 @@
 		A1D265851B9999E3000D8735 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Rocket Town Ltd";
 				TargetAttributes = {
 					A1D2658D1B9999E3000D8735 = {
@@ -211,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A13DF14F1B999BA9008015C3 /* Timberjack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +258,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -325,28 +329,33 @@
 		A1D265A51B9999E3000D8735 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Timberjack/Info.plist;
+				INFOPLIST_FILE = "Source/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A1D265A61B9999E3000D8735 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Timberjack/Info.plist;
+				INFOPLIST_FILE = "Source/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -355,16 +364,14 @@
 		A1D265A81B9999E3000D8735 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TimberjackTests/Info.plist;
+				INFOPLIST_FILE = "Tests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -372,12 +379,10 @@
 		A1D265A91B9999E3000D8735 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TimberjackTests/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "Tests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -401,6 +406,7 @@
 				A1D265A61B9999E3000D8735 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1D265A71B9999E3000D8735 /* Build configuration list for PBXNativeTarget "TimberjackTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +415,7 @@
 				A1D265A91B9999E3000D8735 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
