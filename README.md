@@ -13,6 +13,8 @@ Timberjack is a simple, unintrusive network activity logger. Log every request y
 - Works with `NSURLSession`, `NSURLConnection`, `Alamofire` and pretty much any networking framework
 - Useful for debugging and development, but probably best not to ship your app with verbose logging.
 
+<img src="https://raw.githubusercontent.com/andysmart/Timberjack/master/Assets/screenshot.jpg" width="521px" height="422px" />
+
 ##Installation
 
 Timberjack is installed as an embedded framework, and such requires at least iOS8. If you require iOS7 compatibility, simply drag the `Timberjack.swift` file into your own project.
