@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1825E5D1B99BCA5001C4857 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1825E5C1B99BCA5001C4857 /* AppDelegate.swift */; };
+		A1825E5F1B99BCA5001C4857 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1825E5E1B99BCA5001C4857 /* ViewController.swift */; };
+		A1825E621B99BCA5001C4857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1825E601B99BCA5001C4857 /* Main.storyboard */; };
+		A1825E641B99BCA5001C4857 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1825E631B99BCA5001C4857 /* Assets.xcassets */; };
+		A1825E671B99BCA5001C4857 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1825E651B99BCA5001C4857 /* LaunchScreen.storyboard */; };
+		A1825E7D1B99C88B001C4857 /* Timberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1825E7C1B99C88B001C4857 /* Timberjack.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A1825E591B99BCA5001C4857 /* Timberjack Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Timberjack Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1825E5C1B99BCA5001C4857 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A1825E5E1B99BCA5001C4857 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A1825E611B99BCA5001C4857 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A1825E631B99BCA5001C4857 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1825E661B99BCA5001C4857 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A1825E681B99BCA5001C4857 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1825E7C1B99C88B001C4857 /* Timberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timberjack.framework; path = "../build/Debug-iphoneos/Timberjack.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1825E561B99BCA5001C4857 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1825E7D1B99C88B001C4857 /* Timberjack.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1825E501B99BCA5001C4857 = {
+			isa = PBXGroup;
+			children = (
+				A1825E5B1B99BCA5001C4857 /* Timberjack Example */,
+				A1825E7E1B99C8E5001C4857 /* Frameworks */,
+				A1825E5A1B99BCA5001C4857 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1825E5A1B99BCA5001C4857 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1825E591B99BCA5001C4857 /* Timberjack Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1825E5B1B99BCA5001C4857 /* Timberjack Example */ = {
+			isa = PBXGroup;
+			children = (
+				A1825E5C1B99BCA5001C4857 /* AppDelegate.swift */,
+				A1825E5E1B99BCA5001C4857 /* ViewController.swift */,
+				A1825E601B99BCA5001C4857 /* Main.storyboard */,
+				A1825E631B99BCA5001C4857 /* Assets.xcassets */,
+				A1825E651B99BCA5001C4857 /* LaunchScreen.storyboard */,
+				A1825E681B99BCA5001C4857 /* Info.plist */,
+			);
+			path = "Timberjack Example";
+			sourceTree = "<group>";
+		};
+		A1825E7E1B99C8E5001C4857 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1825E7C1B99C88B001C4857 /* Timberjack.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1825E581B99BCA5001C4857 /* Timberjack Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1825E6B1B99BCA5001C4857 /* Build configuration list for PBXNativeTarget "Timberjack Example" */;
+			buildPhases = (
+				A1825E551B99BCA5001C4857 /* Sources */,
+				A1825E561B99BCA5001C4857 /* Frameworks */,
+				A1825E571B99BCA5001C4857 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Timberjack Example";
+			productName = "Timberjack Example";
+			productReference = A1825E591B99BCA5001C4857 /* Timberjack Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1825E511B99BCA5001C4857 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Rocket Town Ltd";
+				TargetAttributes = {
+					A1825E581B99BCA5001C4857 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = A1825E541B99BCA5001C4857 /* Build configuration list for PBXProject "Timberjack Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1825E501B99BCA5001C4857;
+			productRefGroup = A1825E5A1B99BCA5001C4857 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1825E581B99BCA5001C4857 /* Timberjack Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1825E571B99BCA5001C4857 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1825E671B99BCA5001C4857 /* LaunchScreen.storyboard in Resources */,
+				A1825E641B99BCA5001C4857 /* Assets.xcassets in Resources */,
+				A1825E621B99BCA5001C4857 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1825E551B99BCA5001C4857 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1825E5F1B99BCA5001C4857 /* ViewController.swift in Sources */,
+				A1825E5D1B99BCA5001C4857 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A1825E601B99BCA5001C4857 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1825E611B99BCA5001C4857 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A1825E651B99BCA5001C4857 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1825E661B99BCA5001C4857 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A1825E691B99BCA5001C4857 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A1825E6A1B99BCA5001C4857 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1825E6C1B99BCA5001C4857 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Timberjack Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.Timberjack-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A1825E6D1B99BCA5001C4857 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Timberjack Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.Timberjack-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1825E541B99BCA5001C4857 /* Build configuration list for PBXProject "Timberjack Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1825E691B99BCA5001C4857 /* Debug */,
+				A1825E6A1B99BCA5001C4857 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1825E6B1B99BCA5001C4857 /* Build configuration list for PBXNativeTarget "Timberjack Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1825E6C1B99BCA5001C4857 /* Debug */,
+				A1825E6D1B99BCA5001C4857 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1825E511B99BCA5001C4857 /* Project object */;
+}

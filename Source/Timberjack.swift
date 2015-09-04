@@ -12,21 +12,22 @@ public class Timberjack: NSURLProtocol {
     var connection: NSURLConnection?
     var data: NSMutableData?
     var response: NSURLResponse?
+    var newRequest: NSMutableURLRequest?
     
     public static var logStyle: Style = .Verbose
     
     public class func register() {
-        self.registerClass(self)
+        NSURLProtocol.registerClass(self)
     }
     
     public class func unregister() {
-        self.unregisterClass(self)
+        NSURLProtocol.unregisterClass(self)
     }
     
     //MARK: - NSURLProtocol
     
     public override class func canInitWithRequest(request: NSURLRequest) -> Bool {
-        guard self.propertyForKey(TimberjackRequestHandledKey, inRequest: request) != nil else {
+        guard self.propertyForKey(TimberjackRequestHandledKey, inRequest: request) == nil else {
             return false
         }
         
@@ -42,14 +43,16 @@ public class Timberjack: NSURLProtocol {
     }
 
     public override func startLoading() {
-        guard let newRequest = request.mutableCopy() as? NSMutableURLRequest else { return }
+        guard let req = request.mutableCopy() as? NSMutableURLRequest else { return }
         
-        Timberjack.setProperty(true, forKey: TimberjackRequestHandledKey, inRequest: newRequest)
-        Timberjack.setProperty(NSDate(), forKey: TimberjackRequestTimeKey, inRequest: newRequest)
+        self.newRequest = req
         
-        connection = NSURLConnection(request: newRequest, delegate: self)
+        Timberjack.setProperty(true, forKey: TimberjackRequestHandledKey, inRequest: newRequest!)
+        Timberjack.setProperty(NSDate(), forKey: TimberjackRequestTimeKey, inRequest: newRequest!)
         
-        logRequest(newRequest)
+        connection = NSURLConnection(request: newRequest!, delegate: self)
+        
+        logRequest(newRequest!)
     }
     
     public override func stopLoading() {
@@ -111,7 +114,7 @@ public class Timberjack: NSURLProtocol {
         logDivider()
         
         if let url = request.URL?.absoluteString {
-            print("Request: \(request.HTTPMethod) \(url)")
+            print("Request: \(request.HTTPMethod!) \(url)")
         }
         
         if Timberjack.logStyle == .Verbose {
@@ -138,9 +141,9 @@ public class Timberjack: NSURLProtocol {
                 self.logHeaders(headers)
             }
             
-            if let startDate = Timberjack.propertyForKey(TimberjackRequestTimeKey, inRequest: request) as? NSDate {
-                let difference = startDate.timeIntervalSinceNow
-                print("Duration: \(difference) secs")
+            if let startDate = Timberjack.propertyForKey(TimberjackRequestTimeKey, inRequest: newRequest!) as? NSDate {
+                let difference = fabs(startDate.timeIntervalSinceNow)
+                print("Duration: \(difference)s")
             }
             
             guard let data = data else { return }
