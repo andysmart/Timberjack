@@ -168,7 +168,7 @@ public class Timberjack: NSURLProtocol {
             
             if let data = data {
                 if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: nil) {
-                    let pretty = NSJSONSerialization.dataWithJSONObject(json, options: .Prettyprintlned, error: nil)!
+                    let pretty = NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted, error: nil)!
                 
                     if let string = NSString(data: pretty, encoding: NSUTF8StringEncoding) {
                         println("JSON: \(string)")
