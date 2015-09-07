@@ -47,7 +47,7 @@ public class Timberjack: NSURLProtocol {
     //MARK: - NSURLProtocol
     
     public override class func canInitWithRequest(request: NSURLRequest) -> Bool {
-        guard self.propertyForKey(TimberjackRequestHandledKey, inRequest: request) == nil else {
+        if propertyForKey(TimberjackRequestHandledKey, inRequest: request) != nil {
             return false
         }
         
@@ -63,16 +63,16 @@ public class Timberjack: NSURLProtocol {
     }
 
     public override func startLoading() {
-        guard let req = request.mutableCopy() as? NSMutableURLRequest else { return }
-        
-        self.newRequest = req
-        
-        Timberjack.setProperty(true, forKey: TimberjackRequestHandledKey, inRequest: newRequest!)
-        Timberjack.setProperty(NSDate(), forKey: TimberjackRequestTimeKey, inRequest: newRequest!)
-        
-        connection = NSURLConnection(request: newRequest!, delegate: self)
-        
-        logRequest(newRequest!)
+        if let req = request.mutableCopy() as? NSMutableURLRequest {
+            self.newRequest = req
+            
+            Timberjack.setProperty(true, forKey: TimberjackRequestHandledKey, inRequest: newRequest!)
+            Timberjack.setProperty(NSDate(), forKey: TimberjackRequestTimeKey, inRequest: newRequest!)
+            
+            connection = NSURLConnection(request: newRequest!, delegate: self)
+            
+            logRequest(newRequest!)
+        }
     }
     
     public override func stopLoading() {
@@ -138,7 +138,7 @@ public class Timberjack: NSURLProtocol {
         }
         
         if Timberjack.logStyle == .Verbose {
-            if let headers = request.allHTTPHeaderFields {
+            if let headers = request.allHTTPHeaderFields as? [String: AnyObject] {
                 self.logHeaders(headers)
             }
         }
@@ -166,20 +166,18 @@ public class Timberjack: NSURLProtocol {
                 print("Duration: \(difference)s")
             }
             
-            guard let data = data else { return }
-            
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
-                let pretty = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
+            if let data = data {
+                if let json: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: nil) {
+                    let pretty = NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted, error: nil)!
                 
-                if let string = NSString(data: pretty, encoding: NSUTF8StringEncoding) {
-                    print("JSON: \(string)")
+                    if let string = NSString(data: pretty, encoding: NSUTF8StringEncoding) {
+                        print("JSON: \(string)")
+                    }
                 }
-            }
-                
-            catch {
-                if let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
-                    print("Data: \(string)")
+                else {
+                    if let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                        print("Data: \(string)")
+                    }
                 }
             }
         }
