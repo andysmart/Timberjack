@@ -6,7 +6,7 @@ Automatic Swift network activity logger for iOS or OSX.
 
 Timberjack is a simple, unintrusive network activity logger. Log every request your app makes, or limit to only those using a certain `NSURLSession` if you'd prefer. It also works with [Alamofire](https://github.com/Alamofire/Alamofire), if that's your thing.
 
-*Note, Timberjack is written in Swift 2.0, so you'll need Xcode7 to build.*
+*Note, Timberjack is written in Swift 2.0, so you'll need Xcode7 to build. If you're using Swift 1.2, there's a compatible version on the swift-1.2 branch*
 
 - Enable logging across your app with just 1 line of code
 - Verbose and Light debugging modes
