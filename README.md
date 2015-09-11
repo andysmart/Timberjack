@@ -72,9 +72,7 @@ import Timberjack
 
 class HTTPManager: Alamofire.Manager {
     static let sharedManager: HTTPManager = {
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        configuration.protocolClasses?.insert(Timberjack.self, atIndex: 0)
-
+        let configuration = Timberjack.defaultSessionConfiguration()
         let manager = HTTPManager(configuration: configuration)
         return manager
     }()
