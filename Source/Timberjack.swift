@@ -44,6 +44,12 @@ public class Timberjack: NSURLProtocol {
         NSURLProtocol.unregisterClass(self)
     }
     
+    public class func defaultSessionConfiguration() -> NSURLSessionConfiguration {
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        config.protocolClasses?.insert(Timberjack.self, atIndex: 0)
+        return config
+    }
+    
     //MARK: - NSURLProtocol
     
     public override class func canInitWithRequest(request: NSURLRequest) -> Bool {
