@@ -63,15 +63,17 @@ public class Timberjack: NSURLProtocol {
     }
 
     public override func startLoading() {
-        if let req = request.mutableCopy() as? NSMutableURLRequest {
-            self.newRequest = req
-            
-            Timberjack.setProperty(true, forKey: TimberjackRequestHandledKey, inRequest: newRequest!)
-            Timberjack.setProperty(NSDate(), forKey: TimberjackRequestTimeKey, inRequest: newRequest!)
-            
-            connection = NSURLConnection(request: newRequest!, delegate: self)
-            
-            logRequest(newRequest!)
+        if newRequest == nil {
+            if let req = request.mutableCopy() as? NSMutableURLRequest {
+                self.newRequest = req
+                
+                Timberjack.setProperty(true, forKey: TimberjackRequestHandledKey, inRequest: newRequest!)
+                Timberjack.setProperty(NSDate(), forKey: TimberjackRequestTimeKey, inRequest: newRequest!)
+                
+                connection = NSURLConnection(request: newRequest!, delegate: self)
+                
+                logRequest(newRequest!)
+            }
         }
     }
     
