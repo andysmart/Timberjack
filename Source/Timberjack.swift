@@ -28,12 +28,17 @@ public enum Style {
     case Light
 }
 
+public typealias TimberjackPrint = ((String) -> Void)
+
 public class Timberjack: NSURLProtocol {
     var connection: NSURLConnection?
     var data: NSMutableData?
     var response: NSURLResponse?
     var newRequest: NSMutableURLRequest?
-    
+
+    public static var printLog: TimberjackPrint = { log in
+      print(log)
+    }
     public static var logStyle: Style = .Verbose
     
     public class func register() {
@@ -117,21 +122,21 @@ public class Timberjack: NSURLProtocol {
     //MARK: - Logging
     
     public func logDivider() {
-        print("---------------------")
+      Timberjack.printLog("---------------------")
     }
     
     public func logError(error: NSError) {
         logDivider()
         
-        print("Error: \(error.localizedDescription)")
+        Timberjack.printLog("Error: \(error.localizedDescription)")
         
         if Timberjack.logStyle == .Verbose {
             if let reason = error.localizedFailureReason {
-                print("Reason: \(reason)")
+                Timberjack.printLog("Reason: \(reason)")
             }
             
             if let suggestion = error.localizedRecoverySuggestion {
-                print("Suggestion: \(suggestion)")
+                Timberjack.printLog("Suggestion: \(suggestion)")
             }
         }
     }
@@ -140,7 +145,7 @@ public class Timberjack: NSURLProtocol {
         logDivider()
         
         if let url = request.URL?.absoluteString {
-            print("Request: \(request.HTTPMethod!) \(url)")
+            Timberjack.printLog("Request: \(request.HTTPMethod!) \(url)")
         }
         
         if Timberjack.logStyle == .Verbose {
@@ -154,12 +159,12 @@ public class Timberjack: NSURLProtocol {
         logDivider()
         
         if let url = response.URL?.absoluteString {
-            print("Response: \(url)")
+            Timberjack.printLog("Response: \(url)")
         }
         
         if let httpResponse = response as? NSHTTPURLResponse {
             let localisedStatus = NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode).capitalizedString
-            print("Status: \(httpResponse.statusCode) - \(localisedStatus)")
+            Timberjack.printLog("Status: \(httpResponse.statusCode) - \(localisedStatus)")
         }
         
         if Timberjack.logStyle == .Verbose {
@@ -169,7 +174,7 @@ public class Timberjack: NSURLProtocol {
             
             if let startDate = Timberjack.propertyForKey(TimberjackRequestTimeKey, inRequest: newRequest!) as? NSDate {
                 let difference = fabs(startDate.timeIntervalSinceNow)
-                print("Duration: \(difference)s")
+                Timberjack.printLog("Duration: \(difference)s")
             }
             
             guard let data = data else { return }
@@ -179,23 +184,23 @@ public class Timberjack: NSURLProtocol {
                 let pretty = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
                 
                 if let string = NSString(data: pretty, encoding: NSUTF8StringEncoding) {
-                    print("JSON: \(string)")
+                    Timberjack.printLog("JSON: \(string)")
                 }
             }
                 
             catch {
                 if let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
-                    print("Data: \(string)")
+                    Timberjack.printLog("Data: \(string)")
                 }
             }
         }
     }
     
     public func logHeaders(headers: [String: AnyObject]) {
-        print("Headers: [")
+        Timberjack.printLog("Headers: [")
         for (key, value) in headers {
-            print("  \(key) : \(value)")
+            Timberjack.printLog("  \(key) : \(value)")
         }
-        print("]")
+        Timberjack.printLog("]")
     }
 }
