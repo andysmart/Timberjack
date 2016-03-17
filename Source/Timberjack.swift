@@ -36,11 +36,19 @@ public class Timberjack: NSURLProtocol {
     var response: NSURLResponse?
     var newRequest: NSMutableURLRequest?
 
+    public enum FilterListMode {
+        case Black
+        case White
+    }
+
     public static var printLog: TimberjackPrint = { log in
       print(log)
     }
     public static var logStyle: Style = .Verbose
-    
+    public static var filteredMode: FilterListMode = .Black
+    public static var whiteListUrl: [NSURL]?
+    public static var blackListUrl: [NSURL]?
+
     public class func register() {
         NSURLProtocol.registerClass(self)
     }
@@ -142,6 +150,10 @@ public class Timberjack: NSURLProtocol {
     }
     
     public func logRequest(request: NSURLRequest) {
+        if !shouldLog(request.URL) {
+            return
+        }
+
         logDivider()
         
         if let url = request.URL?.absoluteString {
@@ -156,6 +168,10 @@ public class Timberjack: NSURLProtocol {
     }
     
     public func logResponse(response: NSURLResponse, data: NSData? = nil) {
+        if !shouldLog(response.URL) {
+            return
+        }
+
         logDivider()
         
         if let url = response.URL?.absoluteString {
@@ -202,5 +218,18 @@ public class Timberjack: NSURLProtocol {
             Timberjack.printLog("  \(key) : \(value)")
         }
         Timberjack.printLog("]")
+    }
+
+    func shouldLog(url: NSURL?) -> Bool {
+        switch (Timberjack.filteredMode, url) {
+        case (.Black, let url?):
+            return !(Timberjack.blackListUrl?.contains(url) ?? false)
+        case (.Black, _):
+            return true
+        case (.White, let url?):
+            return Timberjack.whiteListUrl?.contains(url) ?? false
+        case (.White, _):
+            return false
+        }
     }
 }
