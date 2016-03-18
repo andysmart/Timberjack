@@ -24,7 +24,7 @@ class TimberjackTests: XCTestCase {
 
     func testLogDefaultBehavior() {
         // Given
-        let urlRequested = NSURL(string: "http://www.example.com")
+        let urlRequested = NSURL(string: "http://www.example.com/sample")
         let request = NSURLRequest(URL: urlRequested!)
 
         // When
@@ -38,7 +38,7 @@ class TimberjackTests: XCTestCase {
     func testLogDisableWithBlackList() {
         // Given
         let urlFiltered = NSURL(string: "http://www.example.com")
-        let urlRequested = urlFiltered
+        let urlRequested = NSURL(string: "http://www.example.com/sample")
         Timberjack.filteredMode = .Black
         Timberjack.blackListUrl = [urlFiltered!]
         let request = NSURLRequest(URL: urlRequested!)
@@ -70,7 +70,7 @@ class TimberjackTests: XCTestCase {
     func testLogEnableWithWhiteList() {
         // Given
         let urlFiltered = NSURL(string: "http://www.example.com")
-        let urlRequested = urlFiltered
+        let urlRequested = NSURL(string: "http://www.example.com/sample")
         Timberjack.filteredMode = .White
         Timberjack.whiteListUrl = [urlFiltered!]
         let request = NSURLRequest(URL: urlRequested!)

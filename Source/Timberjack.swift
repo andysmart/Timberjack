@@ -221,15 +221,35 @@ public class Timberjack: NSURLProtocol {
     }
 
     func shouldLog(url: NSURL?) -> Bool {
-        switch (Timberjack.filteredMode, url) {
-        case (.Black, let url?):
-            return !(Timberjack.blackListUrl?.contains(url) ?? false)
-        case (.Black, _):
+      let filteredList = Timberjack.filteredMode == .Black ? Timberjack.blackListUrl : Timberjack.whiteListUrl
+
+        switch (Timberjack.filteredMode, url, filteredList) {
+        case (.Black, let url?, let list?):
+            return !list.contains(url)
+        case (.Black, _, _):
             return true
-        case (.White, let url?):
-            return Timberjack.whiteListUrl?.contains(url) ?? false
-        case (.White, _):
+        case (.White, let url?, let list?):
+            return list.contains(url)
+        case (.White, _, _):
             return false
         }
     }
+}
+
+extension String {
+  func contains(aString: String) -> Bool {
+    return self.rangeOfString(aString) != nil
+  }
+}
+
+extension NSURL {
+  func contains(url: NSURL) -> Bool {
+    return self.absoluteString.contains(url.absoluteString)
+  }
+}
+
+extension SequenceType where Generator.Element == NSURL {
+  func contains(element: NSURL) -> Bool {
+    return self.reduce(false) { return $0 || element.contains($1) }
+  }
 }

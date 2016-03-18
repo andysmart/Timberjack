@@ -87,6 +87,15 @@ Timberjack has two modes: Verbose and Light. The default style is `Verbose`. To 
 Timberjack.logStyle = .Verbose //Either .Verbose, or .Light
 ````
 
+It is also possible to filtered which URL you want to log.
+2 modes exist: *Black list mode* and *White list mode*. The default mode is *Black list*
+
+````swift
+Timberjack.filteredMode = .Black
+let urlFiltered = NSURL(string: "http://www.example.com")
+Timberjack.blackListUrl = [urlFiltered!] // All requests going and coming from example.com will be ignored
+````
+
 ##License
 
 MIT, see LICENSE for details.
