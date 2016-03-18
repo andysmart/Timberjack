@@ -9,28 +9,93 @@
 import UIKit
 import XCTest
 
+@testable import Timberjack
+
 class TimberjackTests: XCTestCase {
-    
+
+    private var buffer: [String] = []
+
     override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+        buffer = []
+        Timberjack.printLog = { log in
+            self.buffer.append(log)
         }
     }
+
+    func testLogDefaultBehavior() {
+        // Given
+        let urlRequested = NSURL(string: "http://www.example.com/sample")
+        let request = NSURLRequest(URL: urlRequested!)
+
+        // When
+        let instance = Timberjack()
+        instance.logRequest(request)
+
+        // Then
+        XCTAssert(buffer.count != 0)
+    }
     
+    func testLogDisableWithBlackList() {
+        // Given
+        let urlFiltered = NSURL(string: "http://www.example.com")
+        let urlRequested = NSURL(string: "http://www.example.com/sample")
+        Timberjack.filteredMode = .Black
+        Timberjack.blackListUrl = [urlFiltered!]
+        let request = NSURLRequest(URL: urlRequested!)
+
+        // When
+        let instance = Timberjack()
+        instance.logRequest(request)
+
+        // Then
+        XCTAssert(buffer.count == 0)
+    }
+    
+    func testLogEnableWithBlackList() {
+        // Given
+        let urlFiltered = NSURL(string: "http://www.example.com")
+        let urlRequested = NSURL(string: "http://www.example2.com")
+        Timberjack.filteredMode = .Black
+        Timberjack.blackListUrl = [urlFiltered!]
+        let request = NSURLRequest(URL: urlRequested!)
+
+        // When
+        let instance = Timberjack()
+        instance.logRequest(request)
+
+        // Then
+        XCTAssert(buffer.count != 0)
+    }
+    
+    func testLogEnableWithWhiteList() {
+        // Given
+        let urlFiltered = NSURL(string: "http://www.example.com")
+        let urlRequested = NSURL(string: "http://www.example.com/sample")
+        Timberjack.filteredMode = .White
+        Timberjack.whiteListUrl = [urlFiltered!]
+        let request = NSURLRequest(URL: urlRequested!)
+
+        // When
+        let instance = Timberjack()
+        instance.logRequest(request)
+
+        // Then
+        XCTAssert(buffer.count != 0)
+    }
+
+    func testLogDisableWithWhiteList() {
+        // Given
+        let urlFiltered = NSURL(string: "http://www.example.com")
+        let urlRequested = NSURL(string: "http://www.example2.com")
+        Timberjack.filteredMode = .White
+        Timberjack.whiteListUrl = [urlFiltered!]
+        let request = NSURLRequest(URL: urlRequested!)
+
+        // When
+        let instance = Timberjack()
+        instance.logRequest(request)
+
+        // Then
+        XCTAssert(buffer.count == 0)
+    }
 }
