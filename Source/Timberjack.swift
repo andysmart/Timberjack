@@ -147,6 +147,8 @@ public class Timberjack: NSURLProtocol {
             if let headers = request.allHTTPHeaderFields {
                 self.logHeaders(headers)
             }
+
+            logBody(request.HTTPBody)
         }
     }
     
@@ -171,26 +173,28 @@ public class Timberjack: NSURLProtocol {
                 let difference = fabs(startDate.timeIntervalSinceNow)
                 print("Duration: \(difference)s")
             }
-            
-            guard let data = data else { return }
-            
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
-                let pretty = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
-                
-                if let string = NSString(data: pretty, encoding: NSUTF8StringEncoding) {
-                    print("JSON: \(string)")
-                }
+
+            logBody(data)
+        }
+    }
+
+    public func logBody(data: NSData?) {
+        guard let data = data else { return }
+
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
+            let pretty = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
+
+            if let string = NSString(data: pretty, encoding: NSUTF8StringEncoding) {
+                print("JSON: \(string)")
             }
-                
-            catch {
-                if let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
-                    print("Data: \(string)")
-                }
+        } catch {
+            if let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                print("Data: \(string)")
             }
         }
     }
-    
+
     public func logHeaders(headers: [String: AnyObject]) {
         print("Headers: [")
         for (key, value) in headers {
