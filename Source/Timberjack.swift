@@ -26,6 +26,7 @@ let TimberjackRequestTimeKey = "TimberjackRequestTime"
 public enum Style {
     case Verbose
     case Light
+    case None
 }
 
 public class Timberjack: NSURLProtocol {
@@ -121,6 +122,7 @@ public class Timberjack: NSURLProtocol {
     }
     
     public func logError(error: NSError) {
+        if Timberjack.logStyle == .None { return }
         logDivider()
         
         print("Error: \(error.localizedDescription)")
@@ -137,6 +139,7 @@ public class Timberjack: NSURLProtocol {
     }
     
     public func logRequest(request: NSURLRequest) {
+        if Timberjack.logStyle == .None { return }
         logDivider()
         
         if let url = request.URL?.absoluteString {
@@ -151,6 +154,7 @@ public class Timberjack: NSURLProtocol {
     }
     
     public func logResponse(response: NSURLResponse, data: NSData? = nil) {
+        if Timberjack.logStyle == .None { return }
         logDivider()
         
         if let url = response.URL?.absoluteString {
