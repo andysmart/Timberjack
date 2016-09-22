@@ -12,7 +12,7 @@
 		A1825E621B99BCA5001C4857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1825E601B99BCA5001C4857 /* Main.storyboard */; };
 		A1825E641B99BCA5001C4857 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1825E631B99BCA5001C4857 /* Assets.xcassets */; };
 		A1825E671B99BCA5001C4857 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1825E651B99BCA5001C4857 /* LaunchScreen.storyboard */; };
-		A1825E7D1B99C88B001C4857 /* Timberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1825E7C1B99C88B001C4857 /* Timberjack.framework */; };
+		B36BDA3F1D94676F001D9136 /* Timberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36BDA3E1D94676F001D9136 /* Timberjack.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		A1825E631B99BCA5001C4857 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1825E661B99BCA5001C4857 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1825E681B99BCA5001C4857 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1825E7C1B99C88B001C4857 /* Timberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timberjack.framework; path = "../build/Debug-iphoneos/Timberjack.framework"; sourceTree = "<group>"; };
+		B36BDA3E1D94676F001D9136 /* Timberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timberjack.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Timberjack-evzjobzcmuhktdbryuajyfqohzek/Build/Products/Debug-iphonesimulator/Timberjack.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1825E7D1B99C88B001C4857 /* Timberjack.framework in Frameworks */,
+				B36BDA3F1D94676F001D9136 /* Timberjack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +71,7 @@
 		A1825E7E1B99C8E5001C4857 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A1825E7C1B99C88B001C4857 /* Timberjack.framework */,
+				B36BDA3E1D94676F001D9136 /* Timberjack.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -102,7 +102,7 @@
 		A1825E511B99BCA5001C4857 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Rocket Town Ltd";
 				TargetAttributes = {
 					A1825E581B99BCA5001C4857 = {
@@ -186,8 +186,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -230,8 +232,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -250,6 +254,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -262,6 +267,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.Timberjack-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -273,6 +279,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.Timberjack-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
