@@ -24,108 +24,108 @@ let TimberjackRequestHandledKey = "Timberjack"
 let TimberjackRequestTimeKey = "TimberjackRequestTime"
 
 public enum Style {
-    case Verbose
-    case Light
+    case verbose
+    case light
 }
 
-public class Timberjack: NSURLProtocol {
+open class Timberjack: URLProtocol {
     var connection: NSURLConnection?
     var data: NSMutableData?
-    var response: NSURLResponse?
+    var response: URLResponse?
     var newRequest: NSMutableURLRequest?
     
-    public static var logStyle: Style = .Verbose
+    open static var logStyle: Style = .verbose
     
-    public class func register() {
-        NSURLProtocol.registerClass(self)
+    open class func register() {
+        URLProtocol.registerClass(self)
     }
     
-    public class func unregister() {
-        NSURLProtocol.unregisterClass(self)
+    open class func unregister() {
+        URLProtocol.unregisterClass(self)
     }
     
-    public class func defaultSessionConfiguration() -> NSURLSessionConfiguration {
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        config.protocolClasses?.insert(Timberjack.self, atIndex: 0)
+    open class func defaultSessionConfiguration() -> URLSessionConfiguration {
+        let config = URLSessionConfiguration.default
+        config.protocolClasses?.insert(Timberjack.self, at: 0)
         return config
     }
     
     //MARK: - NSURLProtocol
     
-    public override class func canInitWithRequest(request: NSURLRequest) -> Bool {
-        guard self.propertyForKey(TimberjackRequestHandledKey, inRequest: request) == nil else {
+    open override class func canInit(with request: URLRequest) -> Bool {
+        guard self.property(forKey: TimberjackRequestHandledKey, in: request) == nil else {
             return false
         }
         
         return true
     }
     
-    public override class func canonicalRequestForRequest(request: NSURLRequest) -> NSURLRequest {
+    open override class func canonicalRequest(for request: URLRequest) -> URLRequest {
         return request
     }
     
-    public override class func requestIsCacheEquivalent(a: NSURLRequest, toRequest b: NSURLRequest) -> Bool {
-        return super.requestIsCacheEquivalent(a, toRequest: b)
+    open override class func requestIsCacheEquivalent(_ a: URLRequest, to b: URLRequest) -> Bool {
+        return super.requestIsCacheEquivalent(a, to: b)
     }
 
-    public override func startLoading() {
-        guard let req = request.mutableCopy() as? NSMutableURLRequest where newRequest == nil else { return }
+    open override func startLoading() {
+        guard let req = (request as NSURLRequest).mutableCopy() as? NSMutableURLRequest, newRequest == nil else { return }
         
         self.newRequest = req
         
-        Timberjack.setProperty(true, forKey: TimberjackRequestHandledKey, inRequest: newRequest!)
-        Timberjack.setProperty(NSDate(), forKey: TimberjackRequestTimeKey, inRequest: newRequest!)
+        Timberjack.setProperty(true, forKey: TimberjackRequestHandledKey, in: newRequest!)
+        Timberjack.setProperty(Date(), forKey: TimberjackRequestTimeKey, in: newRequest!)
         
-        connection = NSURLConnection(request: newRequest!, delegate: self)
+        connection = NSURLConnection(request: newRequest! as URLRequest, delegate: self)
         
-        logRequest(newRequest!)
+        logRequest(newRequest! as URLRequest)
     }
     
-    public override func stopLoading() {
+    open override func stopLoading() {
         connection?.cancel()
         connection = nil
     }
     
     // MARK: NSURLConnectionDelegate
     
-    func connection(connection: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
-        let policy = NSURLCacheStoragePolicy(rawValue: request.cachePolicy.rawValue) ?? .NotAllowed
-        client?.URLProtocol(self, didReceiveResponse: response, cacheStoragePolicy: policy)
+    func connection(_ connection: NSURLConnection!, didReceiveResponse response: URLResponse!) {
+        let policy = URLCache.StoragePolicy(rawValue: request.cachePolicy.rawValue) ?? .notAllowed
+        client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: policy)
         
         self.response = response
         self.data = NSMutableData()
     }
     
-    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
-        client?.URLProtocol(self, didLoadData: data)
-        self.data?.appendData(data)
+    func connection(_ connection: NSURLConnection!, didReceiveData data: Data!) {
+        client?.urlProtocol(self, didLoad: data)
+        self.data?.append(data)
     }
     
-    func connectionDidFinishLoading(connection: NSURLConnection!) {
-        client?.URLProtocolDidFinishLoading(self)
+    func connectionDidFinishLoading(_ connection: NSURLConnection!) {
+        client?.urlProtocolDidFinishLoading(self)
         
         if let response = response {
-            logResponse(response, data: data)
+            logResponse(response, data: data as Data?)
         }
     }
     
-    func connection(connection: NSURLConnection!, didFailWithError error: NSError!) {
-        client?.URLProtocol(self, didFailWithError: error)
+    func connection(_ connection: NSURLConnection!, didFailWithError error: NSError!) {
+        client?.urlProtocol(self, didFailWithError: error)
         logError(error)
     }
     
     //MARK: - Logging
     
-    public func logDivider() {
+    open func logDivider() {
         print("---------------------")
     }
     
-    public func logError(error: NSError) {
+    open func logError(_ error: NSError) {
         logDivider()
         
         print("Error: \(error.localizedDescription)")
         
-        if Timberjack.logStyle == .Verbose {
+        if Timberjack.logStyle == .verbose {
             if let reason = error.localizedFailureReason {
                 print("Reason: \(reason)")
             }
@@ -136,38 +136,38 @@ public class Timberjack: NSURLProtocol {
         }
     }
     
-    public func logRequest(request: NSURLRequest) {
+    open func logRequest(_ request: URLRequest) {
         logDivider()
         
-        if let url = request.URL?.absoluteString {
-            print("Request: \(request.HTTPMethod!) \(url)")
+        if let url = request.url?.absoluteString {
+            print("Request: \(request.httpMethod!) \(url)")
         }
         
-        if Timberjack.logStyle == .Verbose {
+        if Timberjack.logStyle == .verbose {
             if let headers = request.allHTTPHeaderFields {
-                self.logHeaders(headers)
+                self.logHeaders(headers as [String : AnyObject])
             }
         }
     }
     
-    public func logResponse(response: NSURLResponse, data: NSData? = nil) {
+    open func logResponse(_ response: URLResponse, data: Data? = nil) {
         logDivider()
         
-        if let url = response.URL?.absoluteString {
+        if let url = response.url?.absoluteString {
             print("Response: \(url)")
         }
         
-        if let httpResponse = response as? NSHTTPURLResponse {
-            let localisedStatus = NSHTTPURLResponse.localizedStringForStatusCode(httpResponse.statusCode).capitalizedString
+        if let httpResponse = response as? HTTPURLResponse {
+            let localisedStatus = HTTPURLResponse.localizedString(forStatusCode: httpResponse.statusCode).capitalized
             print("Status: \(httpResponse.statusCode) - \(localisedStatus)")
         }
         
-        if Timberjack.logStyle == .Verbose {
-            if let headers = (response as? NSHTTPURLResponse)?.allHeaderFields as? [String: AnyObject] {
+        if Timberjack.logStyle == .verbose {
+            if let headers = (response as? HTTPURLResponse)?.allHeaderFields as? [String: AnyObject] {
                 self.logHeaders(headers)
             }
             
-            if let startDate = Timberjack.propertyForKey(TimberjackRequestTimeKey, inRequest: newRequest!) as? NSDate {
+            if let startDate = Timberjack.property(forKey: TimberjackRequestTimeKey, in: newRequest! as URLRequest) as? Date {
                 let difference = fabs(startDate.timeIntervalSinceNow)
                 print("Duration: \(difference)s")
             }
@@ -175,23 +175,23 @@ public class Timberjack: NSURLProtocol {
             guard let data = data else { return }
             
             do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
-                let pretty = try NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                let pretty = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
                 
-                if let string = NSString(data: pretty, encoding: NSUTF8StringEncoding) {
+                if let string = NSString(data: pretty, encoding: String.Encoding.utf8.rawValue) {
                     print("JSON: \(string)")
                 }
             }
                 
             catch {
-                if let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
+                if let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                     print("Data: \(string)")
                 }
             }
         }
     }
     
-    public func logHeaders(headers: [String: AnyObject]) {
+    open func logHeaders(_ headers: [String: AnyObject]) {
         print("Headers: [")
         for (key, value) in headers {
             print("  \(key) : \(value)")
