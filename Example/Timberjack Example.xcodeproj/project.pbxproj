@@ -12,7 +12,7 @@
 		A1825E621B99BCA5001C4857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1825E601B99BCA5001C4857 /* Main.storyboard */; };
 		A1825E641B99BCA5001C4857 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1825E631B99BCA5001C4857 /* Assets.xcassets */; };
 		A1825E671B99BCA5001C4857 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1825E651B99BCA5001C4857 /* LaunchScreen.storyboard */; };
-		A1825E7D1B99C88B001C4857 /* Timberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1825E7C1B99C88B001C4857 /* Timberjack.framework */; };
+		C35E69CE1E0134D300128BA7 /* Timberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C35E69CD1E0134D300128BA7 /* Timberjack.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +24,7 @@
 		A1825E661B99BCA5001C4857 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1825E681B99BCA5001C4857 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1825E7C1B99C88B001C4857 /* Timberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timberjack.framework; path = "../build/Debug-iphoneos/Timberjack.framework"; sourceTree = "<group>"; };
+		C35E69CD1E0134D300128BA7 /* Timberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timberjack.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Timberjack-ddkmnmecumwgrrgpqodtqpqgeasy/Build/Products/Debug-iphonesimulator/Timberjack.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1825E7D1B99C88B001C4857 /* Timberjack.framework in Frameworks */,
+				C35E69CE1E0134D300128BA7 /* Timberjack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +72,7 @@
 		A1825E7E1B99C8E5001C4857 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C35E69CD1E0134D300128BA7 /* Timberjack.framework */,
 				A1825E7C1B99C88B001C4857 /* Timberjack.framework */,
 			);
 			name = Frameworks;
@@ -262,6 +264,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.Timberjack-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -273,6 +276,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.Timberjack-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
