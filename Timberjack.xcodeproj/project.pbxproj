@@ -167,6 +167,7 @@
 				TargetAttributes = {
 					A1D2658D1B9999E3000D8735 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0810;
 					};
 					A1D265981B9999E3000D8735 = {
 						CreatedOnToolsVersion = 6.4;
@@ -341,6 +342,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -358,6 +360,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "co.rockettown.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
