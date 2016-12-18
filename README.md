@@ -37,7 +37,7 @@ Then install with `pod install`
 Add the following to your Cartfile
 
 ````ruby
-github "andysmart/Timberjack" >= 0.0.1
+github "andysmart/Timberjack" >= 0.0.3
 ````
 
 ##Usage
