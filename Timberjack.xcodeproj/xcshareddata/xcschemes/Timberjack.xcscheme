@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A1D265981B9999E3000D8735"
+               BuildableName = "TimberjackTests.xctest"
+               BlueprintName = "TimberjackTests"
+               ReferencedContainer = "container:Timberjack.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A1D2658D1B9999E3000D8735"
+            BuildableName = "Timberjack.framework"
+            BlueprintName = "Timberjack"
+            ReferencedContainer = "container:Timberjack.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -60,6 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A1D2658D1B9999E3000D8735"
+            BuildableName = "Timberjack.framework"
+            BlueprintName = "Timberjack"
+            ReferencedContainer = "container:Timberjack.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
