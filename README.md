@@ -2,7 +2,7 @@
 
 Automatic Swift network activity logger for iOS or OSX.
 
-![Cocoapods](https://img.shields.io/cocoapods/v/Timberjack.svg?style=plain) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) ![MIT](https://img.shields.io/cocoapods/l/Timberjack.svg?style=flat) ![iOS](https://img.shields.io/cocoapods/p/Timberjack.svg?style=flat)
+![CocoaPods](https://img.shields.io/cocoapods/v/Timberjack.svg?style=plain) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) ![MIT](https://img.shields.io/cocoapods/l/Timberjack.svg?style=flat) ![iOS](https://img.shields.io/cocoapods/p/Timberjack.svg?style=flat)
 
 Timberjack is a simple, unintrusive network activity logger. Log every request your app makes, or limit to only those using a certain `URLSession` if you'd prefer. It also works with [Alamofire](https://github.com/Alamofire/Alamofire), if that's your thing.
 
@@ -18,7 +18,7 @@ Timberjack is a simple, unintrusive network activity logger. Log every request y
 
 Timberjack is installed as an embedded framework, and as such requires at least iOS8. If you require iOS7 compatibility, simply drag the `Timberjack.swift` file into your own project.
 
-###Cocoapods
+###CocoaPods
 
 Add the following to your Podfile
 
