@@ -16,7 +16,7 @@ Timberjack is a simple, unintrusive network activity logger. Log every request y
 
 ##Installation
 
-Timberjack is installed as an embedded framework, and such requires at least iOS8. If you require iOS7 compatibility, simply drag the `Timberjack.swift` file into your own project.
+Timberjack is installed as an embedded framework, and as such requires at least iOS8. If you require iOS7 compatibility, simply drag the `Timberjack.swift` file into your own project.
 
 ###Cocoapods
 
