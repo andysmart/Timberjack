@@ -5,8 +5,8 @@ import Timberjack
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        Timberjack.logStyle = .Verbose //Either .Verbose, or .Light
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        Timberjack.logStyle = .verbose //Either .Verbose, or .Light
         Timberjack.register() //Register Timberjack to log all requests
         
         return true

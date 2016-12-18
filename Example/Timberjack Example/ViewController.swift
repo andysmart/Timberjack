@@ -2,15 +2,14 @@ import UIKit
 import Timberjack
 
 class ViewController: UIViewController {
-    
-    @IBAction func requestPressed(sender : AnyObject) {
+    @IBAction func requestPressed(_ sender: AnyObject) {
         requestURL()
     }
     
     func requestURL() {
-        let url = NSURL(string: "http://httpbin.org/get")!
+        let url = URL(string: "http://httpbin.org/get")!
         
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url)
+        let task = URLSession.shared.dataTask(with: url)
         task.resume()
     }
 }
