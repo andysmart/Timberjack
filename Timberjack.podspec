@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "Timberjack"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
   s.summary = "Automatic network activity logger for iOS and OSX, written in Swift."
   s.homepage = "https://github.com/andysmart/Timberjack"
   s.license = "MIT"
