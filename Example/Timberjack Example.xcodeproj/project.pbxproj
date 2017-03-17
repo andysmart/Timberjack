@@ -7,15 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CF8B81D1E7B907400FD70DE /* Timberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF8B81A1E7B905E00FD70DE /* Timberjack.framework */; };
+		3CF8B81E1E7B907400FD70DE /* Timberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF8B81A1E7B905E00FD70DE /* Timberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1825E5D1B99BCA5001C4857 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1825E5C1B99BCA5001C4857 /* AppDelegate.swift */; };
 		A1825E5F1B99BCA5001C4857 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1825E5E1B99BCA5001C4857 /* ViewController.swift */; };
 		A1825E621B99BCA5001C4857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1825E601B99BCA5001C4857 /* Main.storyboard */; };
 		A1825E641B99BCA5001C4857 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1825E631B99BCA5001C4857 /* Assets.xcassets */; };
 		A1825E671B99BCA5001C4857 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1825E651B99BCA5001C4857 /* LaunchScreen.storyboard */; };
-		A1825E7D1B99C88B001C4857 /* Timberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1825E7C1B99C88B001C4857 /* Timberjack.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3CF8B8191E7B905E00FD70DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CF8B8141E7B905E00FD70DE /* Timberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1D2658E1B9999E3000D8735;
+			remoteInfo = Timberjack;
+		};
+		3CF8B81B1E7B905E00FD70DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CF8B8141E7B905E00FD70DE /* Timberjack.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A1D265991B9999E3000D8735;
+			remoteInfo = TimberjackTests;
+		};
+		3CF8B81F1E7B907400FD70DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3CF8B8141E7B905E00FD70DE /* Timberjack.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A1D2658D1B9999E3000D8735;
+			remoteInfo = Timberjack;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3CF8B8211E7B907400FD70DE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3CF8B81E1E7B907400FD70DE /* Timberjack.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3CF8B8141E7B905E00FD70DE /* Timberjack.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Timberjack.xcodeproj; path = ../../Timberjack.xcodeproj; sourceTree = "<group>"; };
 		A1825E591B99BCA5001C4857 /* Timberjack Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Timberjack Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1825E5C1B99BCA5001C4857 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1825E5E1B99BCA5001C4857 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,7 +63,6 @@
 		A1825E631B99BCA5001C4857 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1825E661B99BCA5001C4857 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1825E681B99BCA5001C4857 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1825E7C1B99C88B001C4857 /* Timberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timberjack.framework; path = "../build/Debug-iphoneos/Timberjack.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,13 +70,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1825E7D1B99C88B001C4857 /* Timberjack.framework in Frameworks */,
+				3CF8B81D1E7B907400FD70DE /* Timberjack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CF8B8151E7B905E00FD70DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3CF8B81A1E7B905E00FD70DE /* Timberjack.framework */,
+				3CF8B81C1E7B905E00FD70DE /* TimberjackTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A1825E501B99BCA5001C4857 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +106,7 @@
 		A1825E5B1B99BCA5001C4857 /* Timberjack Example */ = {
 			isa = PBXGroup;
 			children = (
+				3CF8B8141E7B905E00FD70DE /* Timberjack.xcodeproj */,
 				A1825E5C1B99BCA5001C4857 /* AppDelegate.swift */,
 				A1825E5E1B99BCA5001C4857 /* ViewController.swift */,
 				A1825E601B99BCA5001C4857 /* Main.storyboard */,
@@ -71,7 +120,6 @@
 		A1825E7E1B99C8E5001C4857 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A1825E7C1B99C88B001C4857 /* Timberjack.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -86,10 +134,12 @@
 				A1825E551B99BCA5001C4857 /* Sources */,
 				A1825E561B99BCA5001C4857 /* Frameworks */,
 				A1825E571B99BCA5001C4857 /* Resources */,
+				3CF8B8211E7B907400FD70DE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3CF8B8201E7B907400FD70DE /* PBXTargetDependency */,
 			);
 			name = "Timberjack Example";
 			productName = "Timberjack Example";
@@ -121,12 +171,35 @@
 			mainGroup = A1825E501B99BCA5001C4857;
 			productRefGroup = A1825E5A1B99BCA5001C4857 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3CF8B8151E7B905E00FD70DE /* Products */;
+					ProjectRef = 3CF8B8141E7B905E00FD70DE /* Timberjack.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A1825E581B99BCA5001C4857 /* Timberjack Example */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3CF8B81A1E7B905E00FD70DE /* Timberjack.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Timberjack.framework;
+			remoteRef = 3CF8B8191E7B905E00FD70DE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3CF8B81C1E7B905E00FD70DE /* TimberjackTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TimberjackTests.xctest;
+			remoteRef = 3CF8B81B1E7B905E00FD70DE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A1825E571B99BCA5001C4857 /* Resources */ = {
@@ -152,6 +225,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3CF8B8201E7B907400FD70DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Timberjack;
+			targetProxy = 3CF8B81F1E7B907400FD70DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A1825E601B99BCA5001C4857 /* Main.storyboard */ = {
