@@ -1,4 +1,4 @@
-#Timberjack
+# Timberjack
 
 Automatic Swift network activity logger for iOS or OSX.
 
@@ -14,11 +14,11 @@ Timberjack is a simple, unintrusive network activity logger. Log every request y
 
 <img src="https://raw.githubusercontent.com/andysmart/Timberjack/master/Assets/screenshot.jpg" width="521px" height="422px" />
 
-##Installation
+## Installation
 
 Timberjack is installed as an embedded framework, and as such requires at least iOS8. If you require iOS7 compatibility, simply drag the `Timberjack.swift` file into your own project.
 
-###CocoaPods
+### CocoaPods
 
 Add the following to your Podfile
 
@@ -32,7 +32,7 @@ pod 'Timberjack'
 
 Then install with `pod install`
 
-###Carthage
+### Carthage
 
 Add the following to your Cartfile
 
@@ -40,7 +40,7 @@ Add the following to your Cartfile
 github "andysmart/Timberjack" >= 0.0.3
 ````
 
-##Usage
+## Usage
 
 Nice and easy, just register when your app loads, and Timberjack will monitor and log any requests you make via `URLSession` or `URLConnection`.
 
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ````
 
-###Using with Alamofire
+### Using with Alamofire
 
 Due to the way Alamofire uses NSURLSession, you'll need to do a little more than the standard installation to monitor all requests. The simplest way to do this is to create a subclass of `Manager` to handle your requests, then just use this in place of `Alamofire.request()`.
 
@@ -77,7 +77,7 @@ class HTTPManager: Alamofire.SessionManager {
 }
 ````
 
-###Configuration
+### Configuration
 
 Timberjack has two modes: Verbose and Light. The default style is `verbose`. To change this, just set it appropriately.
 
@@ -85,16 +85,16 @@ Timberjack has two modes: Verbose and Light. The default style is `verbose`. To 
 Timberjack.logStyle = .verbose //Either .Verbose, or .Light
 ````
 
-##License
+## License
 
 MIT, see LICENSE for details.
 
-##Bugs or Issues
+## Bugs or Issues
 
 Open an issue here, or ping me a message on Twitter. Even better, fork this repo and open a pull-request!
 
 *Unfortunately, due to a limitation in `URLProtocol`, Timberjack is unable to log the HTTP body of a request, see [This radar](http://openradar.appspot.com/15993891) for more details*
 
-##Credits
+## Credits
 
 Built by [@andyjsmart](https://twitter.com/andyjsmart)
