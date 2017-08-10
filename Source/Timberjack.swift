@@ -148,6 +148,11 @@ open class Timberjack: URLProtocol {
                 self.logHeaders(headers as [String : AnyObject])
             }
         }
+        
+        if let body = request.body(),
+            let bodyString = String(data: body, encoding: .utf8) {
+            print("Body: \(bodyString)")
+        }
     }
     
     open func logResponse(_ response: URLResponse, data: Data? = nil) {
@@ -197,5 +202,41 @@ open class Timberjack: URLProtocol {
             print("  \(key) : \(value)")
         }
         print("]")
+    }
+}
+
+fileprivate extension URLRequest {
+    
+    func body() -> Data? {
+        var data: Data?
+        
+        if let body = self.httpBody {
+            data = body
+        } else if let stream = self.httpBodyStream {
+            stream.open()
+            data = stream.readData()
+            stream.close()
+        }
+        
+        return data
+    }
+}
+
+fileprivate extension InputStream {
+    
+    func readData() -> Data {
+        let maxLength = 4096
+        
+        var data = Data()
+        
+        var buffer = Array<UInt8>(repeating: 0, count:maxLength)
+        
+        var bytesRead = self.read(&buffer, maxLength: maxLength)
+        while bytesRead > 0 {
+            data.append(&buffer, count: bytesRead)
+            bytesRead = self.read(&buffer, maxLength: maxLength)
+        }
+        
+        return data
     }
 }
