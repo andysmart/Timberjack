@@ -1,0 +1,6 @@
+language: objective-c
+
+xcode_project: Timberjack.xcodeproj
+xcode_scheme: Timberjack
+osx_image: xcode8.2
+xcode_sdk: iphonesimulator10.1
