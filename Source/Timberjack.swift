@@ -69,7 +69,7 @@ open class Timberjack: URLProtocol {
     }
 
     open override func startLoading() {
-        guard let req = (request as NSURLRequest).mutableCopy() as? NSMutableURLRequest , newRequest == nil else { return }
+        guard let req = (request as NSURLRequest).mutableCopy() as? NSMutableURLRequest, newRequest == nil else { return }
         
         self.newRequest = req
         
