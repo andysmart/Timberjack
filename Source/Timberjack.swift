@@ -34,7 +34,7 @@ open class Timberjack: URLProtocol {
   var response: URLResponse?
   var newRequest: NSMutableURLRequest?
   
-  open static var logStyle: Style = .verbose
+  public static var logStyle: Style = .verbose
   
   open class func register() {
     URLProtocol.registerClass(self)
